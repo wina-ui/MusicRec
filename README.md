@@ -1,3 +1,3 @@
-# Getting Started with Create React App
+# Find new music 
 
 https://wina-ui.github.io/MusicRec
