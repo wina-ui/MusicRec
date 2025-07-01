@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import Layout from './Layout.js';
 
-function App() {
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Container from '@mui/material/Container';
+import { useState } from "react";
+
+export default function App() {
+  const [song, setSong] = useState("");
+
+  const handleChange = (e) => {
+    setSong(e.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Layout>
+      <Container maxWidth="sm">
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            minHeight: '70vh',
+            textAlign: 'center',
+            gap: 3,
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Typography variant="h4" fontWeight="bold">
+            What’s a song you like?
+          </Typography>
+
+          <TextField
+            label="Song Title"
+            variant="outlined"
+            value={song}
+            onChange={handleChange}
+            fullWidth
+          />
+        </Box>
+      </Container>
+    </Layout>
   );
 }
-
-export default App;
